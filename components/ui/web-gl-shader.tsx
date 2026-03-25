@@ -45,20 +45,20 @@ export function WebGLShader() {
         vec2 p = (gl_FragCoord.xy * 2.0 - resolution) / min(resolution.x, resolution.y);
         
         // Define our 3 requested colors
-        vec3 colorOrange = vec3(1.0, 0.4, 0.0);
-        vec3 colorGreen  = vec3(0.0, 1.0, 0.3);
-        vec3 colorPurple = vec3(0.6, 0.2, 1.0);
+        vec3 colorPurple1 = vec3(0.4, 0.1, 0.8);
+        vec3 colorGreen   = vec3(0.0, 1.0, 0.3);
+        vec3 colorPurple2 = vec3(0.6, 0.2, 1.0);
 
-        // Pattern 1: Orange Wave
+        // Pattern 1: Purple Wave 1
         float w1 = 0.015 / abs(p.y + sin((p.x + time * 0.5) * 1.5) * 0.4);
         
-        // Pattern 2: Green Wave (offset and different freq)
+        // Pattern 2: Green Wave
         float w2 = 0.015 / abs(p.y + sin((p.x - time * 0.3) * 2.0 + 1.0) * 0.3);
         
-        // Pattern 3: Purple Wave (slower and deeper)
+        // Pattern 3: Purple Wave 2
         float w3 = 0.015 / abs(p.y + sin((p.x + time * 0.2) * 1.0 + 2.0) * 0.5);
 
-        vec3 finalColor = colorOrange * w1 + colorGreen * w2 + colorPurple * w3;
+        vec3 finalColor = colorPurple1 * w1 + colorGreen * w2 + colorPurple2 * w3;
         
         // Enhance it slightly
         gl_FragColor = vec4(finalColor, 1.0);
