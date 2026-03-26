@@ -54,7 +54,7 @@ const ExpandablePrograms = () => {
   return (
     <div className="w-full py-20 px-4">
       <div className="max-w-7xl mx-auto">
-        <div 
+        <div
           className="flex flex-col lg:flex-row items-center justify-center gap-4 min-h-[500px]"
           onMouseLeave={() => setExpandedId(null)}
         >
@@ -79,7 +79,7 @@ const ExpandablePrograms = () => {
                 src={program.src}
                 alt={program.title}
               />
-              
+
               {/* Overlay Gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
 
@@ -94,30 +94,30 @@ const ExpandablePrograms = () => {
                     className="absolute inset-0 p-8 flex flex-col justify-end"
                   >
                     <div className="max-w-xl">
-                        <motion.span 
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.4, delay: 0.1 }}
-                            className="inline-block text-green-500 font-bold tracking-[0.2em] text-xs mb-2 uppercase"
-                        >
-                            {program.subtitle}
-                        </motion.span>
-                        <motion.h3 
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.4, delay: 0.2 }}
-                            className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tighter leading-none"
-                        >
-                            {program.title}
-                        </motion.h3>
-                        <motion.p 
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.4, delay: 0.3 }}
-                            className="text-neutral-300 text-lg leading-relaxed font-medium"
-                        >
-                            {program.description}
-                        </motion.p>
+                      <motion.span
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.4, delay: 0.1 }}
+                        className="inline-block text-green-500 font-bold tracking-[0.2em] text-xs mb-2 uppercase"
+                      >
+                        {program.subtitle}
+                      </motion.span>
+                      <motion.h3
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.4, delay: 0.2 }}
+                        className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tighter leading-none"
+                      >
+                        {program.title}
+                      </motion.h3>
+                      <motion.p
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.4, delay: 0.3 }}
+                        className="text-neutral-300 text-lg leading-relaxed font-medium"
+                      >
+                        {program.description}
+                      </motion.p>
                     </div>
                   </motion.div>
                 )}

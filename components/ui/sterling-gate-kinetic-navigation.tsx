@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import gsap from "gsap";
 import { CustomEase } from "gsap/CustomEase";
 
@@ -282,20 +283,20 @@ export function SterlingGateKineticNavigation() {
             <div className="menu-content-wrapper">
               <ul className="menu-list">
                 <li className="menu-list-item" data-shape="1">
-                  <a href="#" className="nav-link w-inline-block">
+                  <Link href="/" className="nav-link w-inline-block">
                     <div className="nav-link-text-wrapper">
                       <span className="nav-link-text">HOME</span>
                       <span className="nav-link-text nav-link-text--hover">HOME</span>
                     </div>
-                  </a>
+                  </Link>
                 </li>
                 <li className="menu-list-item" data-shape="2">
-                  <a href="#" className="nav-link w-inline-block">
+                  <Link href="/about" className="nav-link w-inline-block">
                     <div className="nav-link-text-wrapper">
                       <span className="nav-link-text">ABOUT</span>
                       <span className="nav-link-text nav-link-text--hover">ABOUT</span>
                     </div>
-                  </a>
+                  </Link>
                 </li>
                 <li className="menu-list-item" data-shape="3">
                   <a href="#" className="nav-link w-inline-block">
