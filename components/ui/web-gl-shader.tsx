@@ -35,40 +35,31 @@ export function WebGLShader() {
     `
 
     const fragmentShader = `
-      precision highp float;
+      precision mediump float;
       uniform vec2 resolution;
       uniform float time;
-      uniform float xScale;
-      uniform float yScale;
 
       void main() {
         vec2 p = (gl_FragCoord.xy * 2.0 - resolution) / min(resolution.x, resolution.y);
         
-        // Define our 3 requested colors
-        vec3 colorPurple1 = vec3(0.4, 0.1, 0.8);
-        vec3 colorGreen   = vec3(0.0, 1.0, 0.3);
-        vec3 colorPurple2 = vec3(0.6, 0.2, 1.0);
+        vec3 colorOrange = vec3(1.0, 0.5, 0.0);
+        vec3 colorGreen  = vec3(0.0, 1.0, 0.3);
+        vec3 colorPurple = vec3(0.6, 0.2, 1.0);
 
-        // Pattern 1: Purple Wave 1
         float w1 = 0.015 / abs(p.y + sin((p.x + time * 0.5) * 1.5) * 0.4);
-        
-        // Pattern 2: Green Wave
         float w2 = 0.015 / abs(p.y + sin((p.x - time * 0.3) * 2.0 + 1.0) * 0.3);
-        
-        // Pattern 3: Purple Wave 2
         float w3 = 0.015 / abs(p.y + sin((p.x + time * 0.2) * 1.0 + 2.0) * 0.5);
 
-        vec3 finalColor = colorPurple1 * w1 + colorGreen * w2 + colorPurple2 * w3;
-        
-        // Enhance it slightly
+        vec3 finalColor = colorOrange * w1 + colorGreen * w2 + colorPurple * w3;
         gl_FragColor = vec4(finalColor, 1.0);
       }
     `
 
     const initScene = () => {
       refs.scene = new THREE.Scene()
-      refs.renderer = new THREE.WebGLRenderer({ canvas, antialias: true })
-      refs.renderer.setPixelRatio(window.devicePixelRatio)
+      refs.renderer = new THREE.WebGLRenderer({ canvas, antialias: false, powerPreference: "low-power" })
+      // Cap pixel ratio to 1 for background shader — massive FPS boost
+      refs.renderer.setPixelRatio(1)
       refs.renderer.setClearColor(new THREE.Color(0x000000))
 
       refs.camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, -1)
@@ -76,8 +67,6 @@ export function WebGLShader() {
       refs.uniforms = {
         resolution: { value: [window.innerWidth, window.innerHeight] },
         time: { value: 0.0 },
-        xScale: { value: 1.0 },
-        yScale: { value: 0.5 },
       }
 
       const position = [
@@ -106,12 +95,20 @@ export function WebGLShader() {
       handleResize()
     }
 
-    const animate = () => {
+    // Throttle to ~30fps instead of 60fps — the background doesn't need 60fps
+    let lastTime = 0
+    const targetInterval = 1000 / 30
+
+    const animate = (now: number) => {
+      refs.animationId = requestAnimationFrame(animate)
+      const delta = now - lastTime
+      if (delta < targetInterval) return
+      lastTime = now - (delta % targetInterval)
+
       if (refs.uniforms) refs.uniforms.time.value += 0.01
       if (refs.renderer && refs.scene && refs.camera) {
         refs.renderer.render(refs.scene, refs.camera)
       }
-      refs.animationId = requestAnimationFrame(animate)
     }
 
     const handleResize = () => {
@@ -123,7 +120,7 @@ export function WebGLShader() {
     }
 
     initScene()
-    animate()
+    refs.animationId = requestAnimationFrame(animate)
     window.addEventListener("resize", handleResize)
 
     return () => {

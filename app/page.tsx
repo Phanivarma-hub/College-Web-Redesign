@@ -1,41 +1,22 @@
 "use client";
 
-import { useEffect } from "react";
-import Lenis from "@studio-freight/lenis";
-import { SterlingGateKineticNavigation } from '@/components/ui/sterling-gate-kinetic-navigation';
-import { WebGLShader } from "@/components/ui/web-gl-shader";
+
 import { HeroSubheading } from '@/components/ui/hero-subheading';
 import { FramerCarousel } from '@/components/ui/framer-carousel';
 import { CircularTestimonialsDemo } from '@/components/circular-testimonials-demo';
 import ExpandablePrograms from '@/components/ui/expand-cards';
 import EventsGalleryDemo from '@/components/events-gallery-demo';
-import { StickyFooter } from "@/components/ui/sticky-footer";
 
 import { RiseUp } from "@/components/ui/rise-up";
 
 import { MagneticText } from "@/components/ui/morphing-cursor";
 
 export default function Home() {
-  useEffect(() => {
-    const lenis = new Lenis();
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-    return () => lenis.destroy();
-  }, []);
-
   return (
     <main className="relative min-h-screen">
-      {/* Background Shader */}
-      <WebGLShader />
-
-      {/* Navigation */}
-      <SterlingGateKineticNavigation />
 
       {/* Main Content Wrapper */}
-      <div className="relative z-10 bg-black shadow-[0_50px_100px_rgba(0,0,0,0.9)]">
+      <div className="relative z-10 bg-black/80 shadow-[0_50px_100px_rgba(0,0,0,0.9)]">
         {/* Hero Section */}
         <div className="relative w-full px-4 pt-40 pb-16 flex flex-col items-center overflow-hidden">
           <div className="text-center mb-20 flex flex-col items-center">
@@ -85,16 +66,6 @@ export default function Home() {
         <RiseUp amount={0.1}>
           <EventsGalleryDemo />
         </RiseUp>
-      </div>
-
-      {/* Sticky Footer Reveal Wrapper */}
-      <div 
-        className="relative h-[800px] md:h-[720px] w-full"
-        style={{ clipPath: 'polygon(0% 0, 100% 0%, 100% 100%, 0 100%)' }}
-      >
-        <div className="fixed bottom-0 h-[800px] md:h-[720px] w-full z-0">
-          <StickyFooter className="h-full" />
-        </div>
       </div>
     </main>
   );

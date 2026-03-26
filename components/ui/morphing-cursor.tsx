@@ -36,6 +36,11 @@ export function MagneticText({ text = "CREATIVE", hoverText = "EXPLORE", classNa
   }, [])
 
   useEffect(() => {
+    if (!isHovered) {
+      if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current)
+      return
+    }
+
     const lerp = (start: number, end: number, factor: number) => start + (end - start) * factor
 
     const animate = () => {
@@ -57,7 +62,7 @@ export function MagneticText({ text = "CREATIVE", hoverText = "EXPLORE", classNa
     return () => {
       if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current)
     }
-  }, [])
+  }, [isHovered])
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return

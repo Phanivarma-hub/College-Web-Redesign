@@ -23,8 +23,8 @@ export function RiseUp({
 }: RiseUpProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
-      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: once, amount: amount }}
       transition={{
         duration: duration,

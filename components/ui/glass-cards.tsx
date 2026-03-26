@@ -40,7 +40,7 @@ const Card: React.FC<CardProps> = ({ leader, index, totalCards }) => {
             transformOrigin: "center top"
         });
 
-        ScrollTrigger.create({
+        const st = ScrollTrigger.create({
             trigger: container,
             start: "top center",
             end: "bottom center",
@@ -56,7 +56,7 @@ const Card: React.FC<CardProps> = ({ leader, index, totalCards }) => {
         });
 
         return () => {
-            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+            st.kill();
         };
     }, [index, totalCards]);
 
@@ -81,7 +81,7 @@ const Card: React.FC<CardProps> = ({ leader, index, totalCards }) => {
                 />
 
                 {/* Main Card Content */}
-                <div className="relative w-full h-full bg-neutral-900/90 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] flex overflow-hidden z-10">
+                <div className="relative w-full h-full bg-neutral-900 border border-white/10 rounded-[2.5rem] flex overflow-hidden z-10">
                     {/* Image Side */}
                     <div className="w-[40%] h-full relative overflow-hidden hidden md:block">
                         <img 

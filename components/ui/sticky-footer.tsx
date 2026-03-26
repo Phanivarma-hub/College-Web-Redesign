@@ -259,8 +259,8 @@ function AnimatedContainer({
 
 	return (
 		<motion.div
-			initial={{ filter: 'blur(4px)', translateY: 20, opacity: 0 }}
-			whileInView={{ filter: 'blur(0px)', translateY: 0, opacity: 1 }}
+			initial={{ translateY: 20, opacity: 0 }}
+			whileInView={{ translateY: 0, opacity: 1 }}
 			viewport={{ once: true }}
 			transition={{ delay, duration: 0.8, ease: "easeOut" }}
 			{...props}

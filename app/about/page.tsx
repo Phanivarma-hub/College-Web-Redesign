@@ -1,12 +1,10 @@
 "use client"
 
 import React from "react";
-import { SterlingGateKineticNavigation } from "@/components/ui/sterling-gate-kinetic-navigation";
 import { PillBase } from "@/components/ui/3d-adaptive-navigation-bar";
 import { RiseUp } from "@/components/ui/rise-up";
 import { ArrowRight, Users, Target, BookOpen, Globe, Award, Briefcase, Network, Info, School, FileCheck, Landmark } from "lucide-react";
 import { LeadershipStack } from "@/components/ui/glass-cards";
-import { StickyFooter } from "@/components/ui/sticky-footer";
 
 export default function AboutPage() {
 
@@ -102,13 +100,12 @@ export default function AboutPage() {
   ];
 
   return (
-    <main className="relative min-h-screen bg-[#050505]">
-      {/* Navigation (Sticky/Fixed) */}
-      <SterlingGateKineticNavigation />
+    <main className="relative min-h-screen">
+
       <PillBase />
 
       {/* Hero-like offset for global nav if needed */}
-      <div className="relative z-10 bg-[#050505] pt-32 pb-24 selection:bg-white selection:text-black shadow-[0_50px_100px_rgba(0,0,0,0.9)]">
+      <div className="relative z-10 bg-black/80 pt-32 pb-24 selection:bg-white selection:text-black shadow-[0_50px_100px_rgba(0,0,0,0.9)]">
         <div className="max-w-7xl mx-auto px-6">
 
           {/* SECTION 1: OVERVIEW */}
@@ -139,7 +136,7 @@ export default function AboutPage() {
 
               <div className="space-y-8">
                 <RiseUp delay={0.2}>
-                  <div className="p-8 rounded-[2.5rem] bg-neutral-100/5 border border-white/10 backdrop-blur-xl">
+                  <div className="p-8 rounded-[2.5rem] bg-neutral-900 border border-white/10">
                     <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 text-white">
                       <BookOpen className="text-purple-400" size={24} /> Programs Snapshot
                     </h3>
@@ -404,16 +401,6 @@ export default function AboutPage() {
         </section>
       </div>
     </div>
-
-      {/* Sticky Footer Reveal Wrapper */ }
-  <div
-    className="relative h-[800px] md:h-[720px] w-full"
-    style={{ clipPath: 'polygon(0% 0, 100% 0%, 100% 100%, 0 100%)' }}
-  >
-    <div className="fixed bottom-0 h-[800px] md:h-[720px] w-full z-0">
-      <StickyFooter className="h-full" />
-    </div>
-  </div>
     </main>
   );
 }
