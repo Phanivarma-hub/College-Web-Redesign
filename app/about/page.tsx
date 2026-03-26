@@ -171,7 +171,7 @@ export default function AboutPage() {
                     <h3 className="text-2xl font-bold mb-4 flex items-center gap-3 text-green-400">
                       <Target size={24} /> Vision & Mission
                     </h3>
-                    <p className="text-neutral-300 mb-6 italic">"Transform the society through excellence in Education, Community empowerment and sustained Environmental protection."</p>
+                    <p className="text-neutral-300 mb-6 italic">&quot;Transform the society through excellence in Education, Community empowerment and sustained Environmental protection.&quot;</p>
                     <ul className="grid md:grid-cols-2 gap-x-6 gap-y-3">
                       {missionItems.map((m, i) => (
                         <li key={i} className="flex items-start gap-2 text-sm text-neutral-400 font-medium">
