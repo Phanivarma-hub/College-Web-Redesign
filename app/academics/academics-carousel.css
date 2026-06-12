@@ -1,0 +1,96 @@
+/* Styles for student development infinite loop carousel */
+
+.gallery {
+  position: relative;
+  width: 100%;
+  height: 75vh;
+  min-height: 550px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+}
+
+.cards {
+  position: relative;
+  width: 20rem;
+  height: 26rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cards li {
+  width: 20rem;
+  height: 26rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  user-select: none;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  z-index: 20;
+}
+
+.actions button {
+  outline: none;
+  padding: 14px 32px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border-radius: 99px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.actions button:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+.actions button:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    height: 70vh;
+    min-height: 500px;
+  }
+  
+  .cards {
+    width: 17rem;
+    height: 23rem;
+  }
+  
+  .cards li {
+    width: 17rem;
+    height: 23rem;
+    padding: 24px;
+  }
+}

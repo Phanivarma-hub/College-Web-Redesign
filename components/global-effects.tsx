@@ -15,6 +15,10 @@ export function GlobalEffects({ children }: { children: ReactNode }) {
     // Initial loading sequence
     const timer = setTimeout(() => {
       setIsLoading(false);
+      if (typeof window !== "undefined") {
+        (window as any).__loaderFinished = true;
+        window.dispatchEvent(new Event("loaderFinished"));
+      }
     }, 2500); // Set to 2.5s as requested
 
     const lenis = new Lenis();

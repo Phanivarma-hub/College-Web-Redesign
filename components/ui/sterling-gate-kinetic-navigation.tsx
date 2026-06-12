@@ -283,7 +283,7 @@ export function SterlingGateKineticNavigation() {
             <div className="menu-content-wrapper">
               <ul className="menu-list">
                 <li className="menu-list-item" data-shape="1">
-                  <Link href="/" className="nav-link w-inline-block">
+                  <Link href="/" onClick={closeMenu} className="nav-link w-inline-block">
                     <div className="nav-link-text-wrapper">
                       <span className="nav-link-text">HOME</span>
                       <span className="nav-link-text nav-link-text--hover">HOME</span>
@@ -291,7 +291,7 @@ export function SterlingGateKineticNavigation() {
                   </Link>
                 </li>
                 <li className="menu-list-item" data-shape="2">
-                  <Link href="/about" className="nav-link w-inline-block">
+                  <Link href="/about" onClick={closeMenu} className="nav-link w-inline-block">
                     <div className="nav-link-text-wrapper">
                       <span className="nav-link-text">ABOUT</span>
                       <span className="nav-link-text nav-link-text--hover">ABOUT</span>
@@ -299,12 +299,12 @@ export function SterlingGateKineticNavigation() {
                   </Link>
                 </li>
                 <li className="menu-list-item" data-shape="3">
-                  <a href="#" className="nav-link w-inline-block">
+                  <Link href="/academics" onClick={closeMenu} className="nav-link w-inline-block">
                     <div className="nav-link-text-wrapper">
                       <span className="nav-link-text">ACADEMICS</span>
                       <span className="nav-link-text nav-link-text--hover">ACADEMICS</span>
                     </div>
-                  </a>
+                  </Link>
                 </li>
                 <li className="menu-list-item" data-shape="4">
                   <a href="#" className="nav-link w-inline-block">
