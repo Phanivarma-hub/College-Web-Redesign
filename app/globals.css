@@ -3,16 +3,19 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: #000000;
-  --color-dark: #ffffff;
+  --color-primary: #0a0a0b; /* Softer neutral dark background */
+  --color-dark: #e3e3e6;    /* Softer neutral light text */
   --color-secondary-orange: #ff9800;
-  --color-secondary-green: #4caf50;
+  --color-secondary-green: #22c55e; /* growth emerald accent */
   --color-secondary-purple: #9c27b0;
   
-  --color-overlay: rgba(0, 0, 0, 0.85);
-  --color-menu-bg: #0a0a0a;
+  --color-overlay: rgba(10, 10, 11, 0.85);
+  --color-menu-bg: #151517; /* Card/surface background */
   
-  --font-inter: 'Inter', sans-serif;
+  --font-serif: var(--font-serif), 'Newsreader', Georgia, serif;
+  --font-sans: var(--font-sans), 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-inter: var(--font-sans);
+  
   --cubic-default: cubic-bezier(0.65, 0.01, 0.05, 0.99);
 }
 
@@ -25,10 +28,38 @@
 body {
   background: var(--color-primary);
   color: var(--color-dark);
-  font-family: var(--font-inter);
+  font-family: var(--font-sans);
   margin: 0;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================
+   TYPOGRAPHY SYSTEM & BASE RULES
+   ========================================= */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  text-wrap: balance;
+  color: var(--color-dark);
+}
+
+p {
+  font-family: var(--font-sans);
+  text-wrap: pretty;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.text-serif {
+  font-family: var(--font-serif) !important;
+}
+
+.text-sans {
+  font-family: var(--font-sans) !important;
+}
+
+.text-measure {
+  max-width: 65ch;
 }
 
 /* =========================================

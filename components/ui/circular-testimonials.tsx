@@ -68,6 +68,7 @@ export const CircularTestimonials = ({
   const [hoverPrev, setHoverPrev] = useState(false);
   const [hoverNext, setHoverNext] = useState(false);
   const [containerWidth, setContainerWidth] = useState(1200);
+  const [isInView, setIsInView] = useState(false);
 
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const autoplayIntervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -77,6 +78,31 @@ export const CircularTestimonials = ({
     () => testimonials[activeIndex],
     [activeIndex, testimonials]
   );
+
+  // Track if component is in viewport
+  useEffect(() => {
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
+      setIsInView(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    const el = imageContainerRef.current;
+    if (el) {
+      observer.observe(el);
+    }
+
+    return () => {
+      if (el) {
+        observer.unobserve(el);
+      }
+    };
+  }, []);
 
   // Responsive gap calculation
   useEffect(() => {
@@ -90,17 +116,19 @@ export const CircularTestimonials = ({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Autoplay
+  // Autoplay (only active when component is in view)
   useEffect(() => {
-    if (autoplay) {
+    if (autoplay && isInView) {
       autoplayIntervalRef.current = setInterval(() => {
         setActiveIndex((prev) => (prev + 1) % testimonialsLength);
       }, 5000);
     }
     return () => {
-      if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
+      if (autoplayIntervalRef.current) {
+        clearInterval(autoplayIntervalRef.current);
+      }
     };
-  }, [autoplay, testimonialsLength]);
+  }, [autoplay, isInView, testimonialsLength]);
 
   // Keyboard navigation
   useEffect(() => {

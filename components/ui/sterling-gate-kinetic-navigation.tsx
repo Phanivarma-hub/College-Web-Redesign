@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { CustomEase } from "gsap/CustomEase";
+import { X } from "lucide-react";
 
 // Register GSAP Plugins safely
 if (typeof window !== "undefined") {
@@ -107,6 +108,7 @@ export function SterlingGateKineticNavigation() {
         const overlay = containerRef.current!.querySelector(".overlay");
         const bgPanels = containerRef.current!.querySelectorAll(".backdrop-layer");
         const menuLinks = containerRef.current!.querySelectorAll(".nav-link");
+        const brandItems = containerRef.current!.querySelectorAll(".menu-brand-item");
         const fadeTargets = containerRef.current!.querySelectorAll("[data-menu-fade]");
 
         const menuButton = containerRef.current!.querySelector(".nav-close-btn");
@@ -127,7 +129,8 @@ export function SterlingGateKineticNavigation() {
 
               .fromTo(overlay, { autoAlpha: 0 }, { autoAlpha: 1 }, "<")
               .fromTo(bgPanels, { xPercent: 101 }, { xPercent: 0, stagger: 0.12, duration: 0.575 }, "<")
-              .fromTo(menuLinks, { yPercent: 140, rotate: 10 }, { yPercent: 0, rotate: 0, stagger: 0.05 }, "<+=0.35");
+              .fromTo(brandItems, { yPercent: 140, rotate: 5 }, { yPercent: 0, rotate: 0, stagger: 0.05 }, "<+=0.25")
+              .fromTo(menuLinks, { yPercent: 140, rotate: 10 }, { yPercent: 0, rotate: 0, stagger: 0.05 }, "<+=0.15");
 
             if (fadeTargets.length) {
                 tl.fromTo(fadeTargets, { autoAlpha: 0, yPercent: 50 }, { autoAlpha: 1, yPercent: 0, stagger: 0.04, clearProps: "all" }, "<+=0.2");
@@ -280,8 +283,44 @@ export function SterlingGateKineticNavigation() {
               </div>
             </div>
 
-            <div className="menu-content-wrapper">
-              <ul className="menu-list">
+            <div className="menu-content-wrapper flex flex-col justify-between items-start w-full h-full relative z-10 pt-16">
+              {/* Branding Header & Close button */}
+              <div className="w-full overflow-hidden">
+                <div className="menu-brand-item w-full flex justify-between items-start mb-8">
+                  <div className="flex items-center gap-4">
+                    <div className="p-1.5 bg-white rounded-xl shadow-md shrink-0">
+                      <img 
+                        src="https://seethapoly.edu.in/wp-content/uploads/2020/01/footerlogo1-300x300.png" 
+                        alt="SBSP Logo" 
+                        className="h-12 w-12 object-contain"
+                      />
+                    </div>
+                    <div>
+                      <h2 className="text-white font-extrabold text-sm tracking-wider uppercase leading-none">
+                        Smt. B. Seetha
+                      </h2>
+                      <p className="text-[9px] font-black tracking-[0.25em] text-green-400 uppercase mt-1">
+                        Polytechnic College
+                      </p>
+                      <p className="text-[8px] font-medium tracking-[0.1em] text-neutral-500 uppercase mt-0.5">
+                        Vishnu Educational Society
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Close Button inside menu */}
+                  <button 
+                    onClick={closeMenu} 
+                    className="p-2 rounded-full border border-white/10 bg-white/5 text-white/70 hover:text-white hover:bg-white/10 hover:scale-105 transition-all duration-300 pointer-events-auto"
+                    aria-label="Close menu"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Menu List */}
+              <ul className="menu-list w-full flex-1 flex flex-col justify-center gap-4">
                 <li className="menu-list-item" data-shape="1">
                   <Link href="/" onClick={closeMenu} className="nav-link w-inline-block">
                     <div className="nav-link-text-wrapper">
@@ -323,6 +362,17 @@ export function SterlingGateKineticNavigation() {
                   </a>
                 </li>
               </ul>
+
+              {/* Footer Info inside navigation */}
+              <div className="w-full mt-8 pt-6 border-t border-white/5 flex flex-col gap-1 text-[9px] text-neutral-500 font-bold uppercase tracking-widest">
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                  <span>Bhimavaram, AP, India</span>
+                </div>
+                <p className="text-[8px] tracking-[0.15em] text-neutral-600 font-medium normal-case">
+                  Established 1997 • SSBV Campus Portal
+                </p>
+              </div>
             </div>
           </nav>
         </div>

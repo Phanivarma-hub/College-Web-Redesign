@@ -697,7 +697,7 @@ const Counter = ({ value, decimals = 0, suffix = "" }: { value: number; decimals
   }, []);
 
   return (
-    <main className="relative min-h-screen bg-[#050505] text-white overflow-hidden font-sans">
+    <main className="relative min-h-screen bg-[#0a0a0b] text-[#e3e3e6] overflow-hidden font-sans">
       
       {/* Background Neon Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#111111_1px,transparent_1px),linear-gradient(to_bottom,#111111_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none z-0" />
@@ -724,11 +724,6 @@ const Counter = ({ value, decimals = 0, suffix = "" }: { value: number; decimals
            HERO SECTION
            ========================================= */}
         <section ref={heroRef} className="mb-24 text-center relative select-none">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6 hero-animate-up opacity-0">
-            <Sparkles className="w-4 h-4 text-orange-400 animate-pulse" />
-            <span className="text-xs uppercase tracking-widest font-semibold text-white/70">Academic Catalog 2026</span>
-          </div>
-          
           <h1 className="text-5xl md:text-8xl font-black tracking-tighter uppercase leading-[0.9] mb-8">
             <span className="block text-reveal hero-gradient-1">
               Academics &amp;
@@ -815,7 +810,7 @@ const Counter = ({ value, decimals = 0, suffix = "" }: { value: number; decimals
                     <h2 className="header text-4xl md:text-5xl font-black uppercase text-white tracking-tight leading-none mb-4 text-left">
                       {dept.name}
                     </h2>
-                    <p className="desc text-neutral-300 font-light text-sm md:text-base leading-relaxed mb-8 text-left">
+                    <p className="desc text-neutral-400 font-normal text-base leading-relaxed mb-8 text-left">
                       {dept.objective}
                     </p>
                     <Link 
@@ -912,13 +907,13 @@ const Counter = ({ value, decimals = 0, suffix = "" }: { value: number; decimals
                 </div>
               </div>
 
-              <p className="text-neutral-400 font-light text-sm md:text-base leading-relaxed mb-6">
+              <p className="text-neutral-400 font-normal text-base leading-relaxed mb-6">
                 The Examination Cell coordinates all registration, scheduling, assessment, and record management routines under standard Board of Technical Education rules. We ensure transparent internal assessments, fair evaluation methodologies, and prompt dissemination of marks reports.
               </p>
 
               <ul className="space-y-3 mb-8">
                 {["Mid-Term Test Rosters", "External Board Practical Schedules", "Evaluation Regulations & Guidelines"].map((li, index) => (
-                  <li key={index} className="flex items-center gap-3 text-xs md:text-sm text-neutral-300 font-light">
+                  <li key={index} className="flex items-center gap-3 text-sm md:text-base text-neutral-400 font-normal">
                     <div className="w-1.5 h-1.5 rounded-full bg-purple-400" />
                     {li}
                   </li>
@@ -940,7 +935,7 @@ const Counter = ({ value, decimals = 0, suffix = "" }: { value: number; decimals
                   </div>
                 </div>
 
-                <p className="text-neutral-400 font-light text-sm md:text-base leading-relaxed mb-6">
+                <p className="text-neutral-400 font-normal text-base leading-relaxed mb-6">
                   Check and verify diploma examinations and semester results directly through the Andhra Pradesh State Board of Technical Education and Training (APSBTET) academic results portal.
                 </p>
               </div>
@@ -971,50 +966,21 @@ const Counter = ({ value, decimals = 0, suffix = "" }: { value: number; decimals
             <div className="h-[2px] w-20 bg-gradient-to-r from-orange-500 to-purple-500" />
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-16">
-            <div className="lg:col-span-8 group relative rounded-3xl bg-gradient-to-b from-[#120F17] to-black border border-white/10 p-8 md:p-12 overflow-hidden flex flex-col md:flex-row gap-8 items-center excellence-card opacity-0 shadow-2xl">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-gradient-to-r from-orange-500/10 to-purple-600/10 rounded-full blur-3xl pointer-events-none" />
-
-              <div className="relative shrink-0 w-44 h-44 rounded-2xl bg-gradient-to-br from-orange-500 to-amber-600 p-1 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300">
-                <div className="w-full h-full rounded-xl bg-black flex flex-col items-center justify-center text-center p-4">
-                  <GraduationCap className="w-14 h-14 text-orange-400 mb-2 animate-bounce" />
-                  <span className="text-[1.8rem] font-black text-white leading-none">98.34%</span>
-                  <span className="text-[0.6rem] font-bold text-neutral-400 tracking-widest uppercase mt-1">PERCENTAGE</span>
-                </div>
-              </div>
-
-              <div className="flex-1 text-center md:text-left">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-wider mb-4">
-                  <Award className="w-3.5 h-3.5" />
-                  <span>Featured Topper Honors</span>
-                </div>
-
-                <h3 className="text-3xl md:text-4xl font-extrabold uppercase text-white tracking-tight leading-tight mb-2">
-                  Katnam Sesha Sai Sri Lakshmi Ratnam
-                </h3>
-                <p className="text-sm uppercase tracking-widest text-neutral-400 font-bold mb-4">
-                  Batch: 2022 - 2025  |  Computer Engineering (CME)
-                </p>
-                <p className="text-neutral-400 font-light text-sm md:text-base leading-relaxed">
-                  Graduated with a record-setting 98.34% average, exemplifying the academic rigor, technical dedication, and innovation values embedded within Seetha Polytechnic College.
-                </p>
-              </div>
-            </div>
-
-            <div className="lg:col-span-4 rounded-3xl bg-white/5 border border-white/10 p-8 md:p-10 flex flex-col justify-between items-center text-center excellence-card opacity-0 relative overflow-hidden backdrop-blur-md">
+          <div className="flex justify-center mb-16">
+            <div className="max-w-2xl w-full rounded-3xl bg-white/5 border border-white/10 p-8 md:p-10 flex flex-col justify-between items-center text-center excellence-card opacity-0 relative overflow-hidden backdrop-blur-md">
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white/[0.02] to-transparent pointer-events-none" />
               
               <div className="flex flex-col items-center mt-4">
                 <Trophy className="w-14 h-14 text-yellow-500 mb-6 drop-shadow-[0_0_15px_rgba(234,179,8,0.4)]" />
-                <h4 className="text-xl font-bold uppercase tracking-tight text-white mb-2">25+ Years Legacy</h4>
-                <p className="text-neutral-400 font-light text-xs md:text-sm leading-relaxed max-w-xs">
+                <h4 className="text-2xl font-bold uppercase tracking-tight text-white mb-2">25+ Years Legacy</h4>
+                <p className="text-neutral-400 font-normal text-sm md:text-base leading-relaxed max-w-md">
                   Browse the historical database of gold medalists and top performers from 1997 to 2025.
                 </p>
               </div>
 
               <button
                 onClick={() => setIsTopperModalOpen(true)}
-                className="w-full mt-8 inline-flex items-center justify-center gap-2 px-5 py-4 rounded-xl border border-white/20 text-white font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-all duration-300 text-sm shadow-md"
+                className="w-full max-w-sm mt-8 inline-flex items-center justify-center gap-2 px-5 py-4 rounded-xl border border-white/20 text-white font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-all duration-300 text-sm shadow-md cursor-pointer"
               >
                 <span>View All Toppers</span>
                 <ChevronRight className="w-4 h-4" />

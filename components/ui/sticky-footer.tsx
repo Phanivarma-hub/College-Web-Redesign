@@ -57,32 +57,80 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
 
 						{/* Top Section: Campuses */}
 						<div className="z-10 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
-							{campusGroups.map((group, index) => (
-								<AnimatedContainer
-									key={group.label}
-									delay={index * 0.1}
-									className="flex flex-col space-y-4"
-								>
-									<div className="flex items-center gap-2">
-										<div className="h-8 w-1 bg-gradient-to-b from-green-500 to-transparent" />
-										<h3 className="text-sm font-bold tracking-widest text-green-400 uppercase">
-											{group.label}
-										</h3>
-									</div>
-									<ul className="space-y-3">
-										{group.links.map((link) => (
-											<li key={link.title}>
-												<a
-													href={link.href}
-													className="text-white/60 hover:text-white transition-colors text-sm leading-relaxed"
-												>
-													{link.title}
-												</a>
-											</li>
-										))}
-									</ul>
-								</AnimatedContainer>
-							))}
+							{/* Green Meadows Campus (takes 2 columns on desktop grid) */}
+							<AnimatedContainer
+								delay={0}
+								className="flex flex-col space-y-4 lg:col-span-2"
+							>
+								<div className="flex items-center gap-2">
+									<div className="h-8 w-1 bg-gradient-to-b from-green-500 to-transparent" />
+									<h3 className="text-sm font-bold tracking-widest text-green-400 uppercase">
+										Green Meadows Campus
+									</h3>
+								</div>
+								<ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
+									{campusGroups[0].links.map((link) => (
+										<li key={link.title}>
+											<a
+												href={link.href}
+												className="text-white/60 hover:text-white transition-colors text-sm leading-relaxed"
+											>
+												{link.title}
+											</a>
+										</li>
+									))}
+								</ul>
+							</AnimatedContainer>
+
+							{/* Orchard Park Campus */}
+							<AnimatedContainer
+								delay={0.1}
+								className="flex flex-col space-y-4"
+							>
+								<div className="flex items-center gap-2">
+									<div className="h-8 w-1 bg-gradient-to-b from-green-500 to-transparent" />
+									<h3 className="text-sm font-bold tracking-widest text-green-400 uppercase">
+										Orchard Park Campus
+									</h3>
+								</div>
+								<ul className="space-y-3">
+									{campusGroups[1].links.map((link) => (
+										<li key={link.title}>
+											<a
+												href={link.href}
+												className="text-white/60 hover:text-white transition-colors text-sm leading-relaxed"
+											>
+												{link.title}
+											</a>
+										</li>
+									))}
+								</ul>
+							</AnimatedContainer>
+
+							{/* Other Campuses */}
+							<AnimatedContainer
+								delay={0.2}
+								className="flex flex-col space-y-4"
+							>
+								<div className="flex items-center gap-2">
+									<div className="h-8 w-1 bg-gradient-to-b from-green-500 to-transparent" />
+									<h3 className="text-sm font-bold tracking-widest text-green-400 uppercase">
+										Other Campuses
+									</h3>
+								</div>
+								<ul className="space-y-3">
+									{campusGroups[2].links.map((link) => (
+										<li key={link.title}>
+											<a
+												href={link.href}
+												className="text-white/60 hover:text-white transition-colors text-sm leading-relaxed"
+											>
+												{link.title}
+											</a>
+										</li>
+									))}
+								</ul>
+							</AnimatedContainer>
 						</div>
 
 						{/* Middle Section: Logo, Contact, Links */}
@@ -215,14 +263,9 @@ const campusGroups: FooterLinkGroup[] = [
 		],
 	},
 	{
-		label: 'Valley Vista Campus',
+		label: 'Other Campuses',
 		links: [
 			{ title: 'BVRIT Hyderabad College of Engineering For Women', href: '#' },
-		],
-	},
-	{
-		label: 'Lake View Campus',
-		links: [
 			{ title: 'Vishnu Educational Development and Innovation Centre', href: '#' },
 		],
 	},

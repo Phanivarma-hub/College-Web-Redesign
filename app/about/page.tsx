@@ -112,13 +112,10 @@ export default function AboutPage() {
           <section id="overview" className="scroll-mt-32">
             <div className="grid lg:grid-cols-2 gap-16 items-start">
               <RiseUp>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold tracking-widest uppercase mb-6">
-                  <Globe size={14} /> Institution Identity
-                </div>
                 <h1 className="text-6xl md:text-8xl font-black mb-8 tracking-tighter leading-none text-white">
                   ABOUT<br /><span className="text-neutral-500">COLLEGE</span>
                 </h1>
-                <div className="space-y-6 text-xl text-neutral-400 leading-relaxed font-medium">
+                <div className="space-y-6 text-base md:text-lg text-neutral-400 leading-relaxed font-normal">
                   <p>
                     Smt. B. Seetha Polytechnic was established on 9th December 1997 at Vishpnpur, Bhimavaram, West Godavari District, Andhra Pradesh by <span className="text-white">Sri Vishnu Educational Society (SVES)</span>, founded in 1992 by Padma Bhushan Dr. B. V. Raju.
                   </p>
@@ -198,7 +195,7 @@ export default function AboutPage() {
                     <h2 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-none uppercase text-white">
                       Foundation of <br /><span className="text-purple-500">Excellence</span>
                     </h2>
-                    <div className="space-y-6 text-lg text-neutral-400 leading-relaxed font-medium">
+                    <div className="space-y-6 text-base md:text-lg text-neutral-400 leading-relaxed font-normal">
                       <p>
                         Founded in 1992 by the legendary Padma Bhushan Dr. B. V. Raju, Sri Vishnu Educational Society (SVES) has become a benchmark for technical and professional education in Andhra Pradesh and Telangana.
                       </p>
@@ -250,9 +247,6 @@ export default function AboutPage() {
           <RiseUp>
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
               <div className="max-w-2xl">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-bold tracking-widest uppercase mb-4">
-                  <Network size={14} /> Structural Integrity
-                </div>
                 <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none uppercase text-white">
                   Govern<span className="text-neutral-500">ance</span>
                 </h2>
@@ -321,7 +315,7 @@ export default function AboutPage() {
                   <h3 className="text-4xl md:text-5xl font-black tracking-tighter leading-none mb-6">
                     ARCHITECTURAL<br />HIERARCHY
                   </h3>
-                  <p className="text-neutral-500 font-medium">
+                  <p className="text-neutral-400 font-normal">
                     Our integrated structural framework ensures seamless communication between boards, administrative bodies, and academic departments.
                   </p>
                 </div>
