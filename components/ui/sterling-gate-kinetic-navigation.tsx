@@ -109,6 +109,7 @@ export function SterlingGateKineticNavigation() {
         const bgPanels = containerRef.current!.querySelectorAll(".backdrop-layer");
         const menuLinks = containerRef.current!.querySelectorAll(".nav-link");
         const brandItems = containerRef.current!.querySelectorAll(".menu-brand-item");
+        const menuFooter = containerRef.current!.querySelectorAll(".menu-footer");
         const fadeTargets = containerRef.current!.querySelectorAll("[data-menu-fade]");
 
         const menuButton = containerRef.current!.querySelector(".nav-close-btn");
@@ -121,7 +122,11 @@ export function SterlingGateKineticNavigation() {
             // OPEN
             if (navWrap) navWrap.setAttribute("data-nav", "open");
 
-            tl.set(navWrap, { display: "block" })
+            // Set initial hidden states immediately to avoid any flash of un-animated content
+            tl.set(brandItems, { yPercent: 140, rotate: 5 })
+              .set(menuLinks, { yPercent: 140, rotate: 10 })
+              .set(menuFooter, { yPercent: 140, rotate: 5 })
+              .set(navWrap, { display: "block" })
               .set(menu, { xPercent: 0 }, "<")
               // Animate Button Text Swapping if it exists
               .fromTo(menuButtonTexts, { yPercent: 0 }, { yPercent: -100, stagger: 0.2 })
@@ -129,8 +134,9 @@ export function SterlingGateKineticNavigation() {
 
               .fromTo(overlay, { autoAlpha: 0 }, { autoAlpha: 1 }, "<")
               .fromTo(bgPanels, { xPercent: 101 }, { xPercent: 0, stagger: 0.12, duration: 0.575 }, "<")
-              .fromTo(brandItems, { yPercent: 140, rotate: 5 }, { yPercent: 0, rotate: 0, stagger: 0.05 }, "<+=0.25")
-              .fromTo(menuLinks, { yPercent: 140, rotate: 10 }, { yPercent: 0, rotate: 0, stagger: 0.05 }, "<+=0.15");
+              .to(brandItems, { yPercent: 0, rotate: 0, stagger: 0.05 }, "<+=0.25")
+              .to(menuLinks, { yPercent: 0, rotate: 0, stagger: 0.05 }, "<+=0.15")
+              .to(menuFooter, { yPercent: 0, rotate: 0 }, "<+=0.1");
 
             if (fadeTargets.length) {
                 tl.fromTo(fadeTargets, { autoAlpha: 0, yPercent: 50 }, { autoAlpha: 1, yPercent: 0, stagger: 0.04, clearProps: "all" }, "<+=0.2");
@@ -285,8 +291,8 @@ export function SterlingGateKineticNavigation() {
 
             <div className="menu-content-wrapper flex flex-col justify-between items-start w-full h-full relative z-10 pt-16">
               {/* Branding Header & Close button */}
-              <div className="w-full overflow-hidden">
-                <div className="menu-brand-item w-full flex justify-between items-start mb-8">
+              <div className="w-full mb-8 overflow-hidden">
+                <div className="menu-brand-item w-full flex justify-between items-start">
                   <div className="flex items-center gap-4">
                     <div className="p-1.5 bg-white rounded-xl shadow-md shrink-0">
                       <img 
@@ -346,12 +352,12 @@ export function SterlingGateKineticNavigation() {
                   </Link>
                 </li>
                 <li className="menu-list-item" data-shape="4">
-                  <a href="#" className="nav-link w-inline-block">
-                    <div className="nav-link-text-wrapper" data-menu-fade>
+                  <Link href="/admissions" onClick={closeMenu} className="nav-link w-inline-block">
+                    <div className="nav-link-text-wrapper">
                       <span className="nav-link-text">ADMISSIONS</span>
                       <span className="nav-link-text nav-link-text--hover">ADMISSIONS</span>
                     </div>
-                  </a>
+                  </Link>
                 </li>
                 <li className="menu-list-item" data-shape="5">
                   <a href="#" className="nav-link w-inline-block">
@@ -364,14 +370,16 @@ export function SterlingGateKineticNavigation() {
               </ul>
 
               {/* Footer Info inside navigation */}
-              <div className="w-full mt-8 pt-6 border-t border-white/5 flex flex-col gap-1 text-[9px] text-neutral-500 font-bold uppercase tracking-widest">
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                  <span>Bhimavaram, AP, India</span>
+              <div className="w-full mt-8 overflow-hidden">
+                <div className="menu-footer w-full pt-6 border-t border-white/5 flex flex-col gap-1 text-[9px] text-neutral-500 font-bold uppercase tracking-widest">
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                    <span>Bhimavaram, AP, India</span>
+                  </div>
+                  <p className="text-[8px] tracking-[0.15em] text-neutral-600 font-medium normal-case">
+                    Established 1997 • SSBV Campus Portal
+                  </p>
                 </div>
-                <p className="text-[8px] tracking-[0.15em] text-neutral-600 font-medium normal-case">
-                  Established 1997 • SSBV Campus Portal
-                </p>
               </div>
             </div>
           </nav>

@@ -6,6 +6,12 @@ import { WebGLShader } from "@/components/ui/web-gl-shader";
 import { SterlingGateKineticNavigation } from "@/components/ui/sterling-gate-kinetic-navigation";
 import { StickyFooter } from "@/components/ui/sticky-footer";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
 
 export function GlobalEffects({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -21,6 +27,22 @@ export function GlobalEffects({ children }: { children: ReactNode }) {
   useEffect(() => {
     // Check if loader has already run in this session
     const isDone = sessionStorage.getItem("sbsp-loader-done") === "true";
+
+    // Initialize Lenis scroll
+    const lenis = new Lenis();
+
+    // Sync GSAP ScrollTrigger with Lenis
+    lenis.on("scroll", () => {
+      ScrollTrigger.update();
+    });
+
+    let rafId: number;
+    function raf(time: number) {
+      lenis.raf(time);
+      rafId = requestAnimationFrame(raf);
+    }
+    rafId = requestAnimationFrame(raf);
+
     if (isDone) {
       setIsLoading(false);
       setIsBypassed(true);
@@ -28,23 +50,17 @@ export function GlobalEffects({ children }: { children: ReactNode }) {
         (window as any).__loaderFinished = true;
         window.dispatchEvent(new Event("loaderFinished"));
       }
-      return;
+      lenis.start();
+
+      return () => {
+        cancelAnimationFrame(rafId);
+        lenis.destroy();
+      };
     }
-
-
 
     // Prevent scrolling during load
     document.body.style.overflow = "hidden";
-
-    // Initialize Lenis scroll and pause it
-    const lenis = new Lenis();
     lenis.stop();
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
 
     // Setup GSAP Timeline
     const counter = { val: 0 };
@@ -149,6 +165,7 @@ export function GlobalEffects({ children }: { children: ReactNode }) {
     // Cleanup on unmount
     return () => {
       tl.kill();
+      cancelAnimationFrame(rafId);
       lenis.destroy();
       document.body.style.overflow = "";
     };
