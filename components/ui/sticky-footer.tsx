@@ -40,12 +40,12 @@ type StickyFooterProps = React.ComponentProps<'footer'>;
 export function StickyFooter({ className, ...props }: StickyFooterProps) {
 	return (
 		<footer
-			className={cn('relative h-full w-full bg-black text-white', className)}
+			className={cn('relative h-full w-full bg-[var(--color-footer-bg)] text-[var(--color-footer-text)]', className)}
 			{...props}
 		>
-			<div className="relative h-full w-full bg-black">
+			<div className="relative h-full w-full bg-[var(--color-footer-bg)]">
 				<div className="h-full pt-20">
-					<div className="relative flex size-full flex-col justify-between gap-10 border-t border-white/10 px-4 py-12 md:px-12">
+					<div className="relative flex size-full flex-col justify-between gap-10 border-t border-[var(--color-footer-border)] px-4 py-12 md:px-12">
 						{/* Background Accents */}
 						<div
 							aria-hidden
@@ -73,7 +73,7 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
 										<li key={link.title}>
 											<a
 												href={link.href}
-												className="text-white/60 hover:text-white transition-colors text-sm leading-relaxed"
+												className="text-[var(--color-footer-muted)] hover:text-[var(--color-footer-text)] transition-colors text-sm leading-relaxed"
 											>
 												{link.title}
 											</a>
@@ -98,7 +98,7 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
 										<li key={link.title}>
 											<a
 												href={link.href}
-												className="text-white/60 hover:text-white transition-colors text-sm leading-relaxed"
+												className="text-[var(--color-footer-muted)] hover:text-[var(--color-footer-text)] transition-colors text-sm leading-relaxed"
 											>
 												{link.title}
 											</a>
@@ -123,7 +123,7 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
 										<li key={link.title}>
 											<a
 												href={link.href}
-												className="text-white/60 hover:text-white transition-colors text-sm leading-relaxed"
+												className="text-[var(--color-footer-muted)] hover:text-[var(--color-footer-text)] transition-colors text-sm leading-relaxed"
 											>
 												{link.title}
 											</a>
@@ -134,7 +134,7 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
 						</div>
 
 						{/* Middle Section: Logo, Contact, Links */}
-						<div className="z-10 grid grid-cols-1 gap-12 border-t border-white/10 pt-12 md:grid-cols-3">
+						<div className="z-10 grid grid-cols-1 gap-12 border-t border-[var(--color-footer-border)] pt-12 md:grid-cols-3">
 							{/* Logo and About */}
 							<AnimatedContainer className="flex flex-col space-y-6">
 								<div className="flex flex-col">
@@ -151,7 +151,7 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
 									    </span>
                                     </div>
 								</div>
-								<p className="text-sm text-white/50 leading-relaxed max-w-sm">
+								<p className="text-sm text-[var(--color-footer-muted)] leading-relaxed max-w-sm">
 									Smt. B. Seetha Polytechnic College is committed to providing 
 									world-class technical education, fostering innovation, and 
                                     empowering students under the Vishnu Educational Society.
@@ -175,24 +175,24 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
 
 							{/* Contact Info */}
 							<AnimatedContainer delay={0.2} className="flex flex-col space-y-6">
-								<h3 className="text-sm font-bold uppercase tracking-widest text-white">Contact Us</h3>
+								<h3 className="text-sm font-bold uppercase tracking-widest text-[var(--color-footer-text)]">Contact Us</h3>
 								<div className="flex flex-col space-y-4">
 									<div className="flex items-start gap-4">
 										<MapPin className="size-5 text-green-500 shrink-0 mt-1" />
-										<p className="text-sm text-white/60">
+										<p className="text-sm text-[var(--color-footer-muted)]">
 											Vishnupur, West Godavari, Bhimavaram,<br />
 											Andhra Pradesh 534202
 										</p>
 									</div>
 									<div className="flex items-center gap-4">
 										<Mail className="size-5 text-purple-500 shrink-0" />
-										<a href="mailto:seethapolytechnic093@gmail.com" className="text-sm text-white/60 hover:text-white transition-colors">
+										<a href="mailto:seethapolytechnic093@gmail.com" className="text-sm text-[var(--color-footer-muted)] hover:text-[var(--color-footer-text)] transition-colors">
 											seethapolytechnic093@gmail.com
 										</a>
 									</div>
 									<div className="flex items-center gap-4">
 										<Phone className="size-5 text-green-500 shrink-0" />
-										<a href="tel:+918816250815" className="text-sm text-white/60 hover:text-white transition-colors">
+										<a href="tel:+918816250815" className="text-sm text-[var(--color-footer-muted)] hover:text-[var(--color-footer-text)] transition-colors">
 											+91 88162 50815
 										</a>
 									</div>
@@ -201,13 +201,13 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
 
 							{/* Quick Links */}
 							<AnimatedContainer delay={0.3} className="flex flex-col space-y-6">
-								<h3 className="text-sm font-bold uppercase tracking-widest text-white">Quick Links</h3>
+								<h3 className="text-sm font-bold uppercase tracking-widest text-[var(--color-footer-text)]">Quick Links</h3>
 								<ul className="grid grid-cols-2 gap-x-4 gap-y-3">
 									{quickLinks.map((link) => (
 										<li key={link.title}>
 											<a
 												href={link.href}
-												className="text-sm text-white/60 hover:text-green-500 transition-colors flex items-center gap-2 group"
+												className="text-sm text-[var(--color-footer-muted)] hover:text-green-500 transition-colors flex items-center gap-2 group"
 											>
 												<span className="h-px w-0 bg-purple-500 transition-all duration-300 group-hover:w-3" />
 												{link.title}
@@ -219,11 +219,11 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
 						</div>
 
 						{/* Bottom Copyright */}
-						<div className="z-10 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-8 pb-4 text-xs font-medium uppercase tracking-widest text-white/30 md:flex-row">
+						<div className="z-10 flex flex-col items-center justify-between gap-6 border-t border-[var(--color-footer-border)] pt-8 pb-4 text-xs font-medium uppercase tracking-widest text-[var(--color-footer-muted)] md:flex-row">
 							<p>© 2025 Smt. B. Seetha Polytechnic College. All rights reserved.</p>
 							<div className="flex items-center gap-8">
-								<a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-								<a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+								<a href="#" className="hover:text-[var(--color-footer-text)] transition-colors">Privacy Policy</a>
+								<a href="#" className="hover:text-[var(--color-footer-text)] transition-colors">Terms of Service</a>
 								<p>Vishnu Educational Society</p>
 							</div>
 						</div>

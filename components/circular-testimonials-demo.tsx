@@ -44,8 +44,8 @@ export const CircularTestimonialsDemo = () => (
   <section className="relative z-10 w-full px-4 pt-16 pb-32 flex flex-col items-center">
     <div className="w-full max-w-7xl mx-auto flex flex-col items-center justify-center relative overflow-hidden">
       <div className="w-full text-center mb-16 max-w-4xl relative z-10 flex flex-col items-center">
-        <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white mb-6 uppercase">Leadership & Vision</h2>
-        <p className="text-neutral-400 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed font-medium">
+        <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-[var(--color-dark)] mb-6 uppercase">Leadership & Vision</h2>
+        <p className="text-[var(--color-dark)] opacity-75 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed font-medium">
           Hear from the visionaries who built our foundation and continue to guide our educational journey into the future.
         </p>
       </div>
@@ -56,11 +56,11 @@ export const CircularTestimonialsDemo = () => (
           testimonials={testimonials}
           autoplay={true}
           colors={{
-            name: "#ffffff",
-            designation: "#a3a3a3",
-            testimony: "#e5e5e5",
-            arrowBackground: "rgba(255, 255, 255, 0.05)",
-            arrowForeground: "#ffffff",
+            name: "var(--color-dark)",
+            designation: "var(--color-dark)",
+            testimony: "var(--color-dark)",
+            arrowBackground: "var(--color-arrow-bg)",
+            arrowForeground: "var(--color-dark)",
             arrowHoverBackground: "#9333ea",
           }}
           fontSizes={{

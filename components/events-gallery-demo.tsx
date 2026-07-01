@@ -14,7 +14,7 @@ export default function EventsGalleryDemo() {
   return (
     <div className="relative z-10 w-full px-4 pt-16 pb-24 flex flex-col items-center">
       <div className="w-full max-w-7xl mx-auto flex flex-col items-center mb-8">
-        <h2 className="text-4xl md:text-7xl font-black tracking-tighter text-white mb-4 uppercase text-center">
+        <h2 className="text-4xl md:text-7xl font-black tracking-tighter text-[var(--color-dark)] mb-4 uppercase text-center">
           Events
         </h2>
         <div className="h-px w-20 bg-orange-500 mb-6" />
@@ -25,7 +25,7 @@ export default function EventsGalleryDemo() {
           bend={3}
           borderRadius={0.05}
           scrollEase={0.02}
-          fontClassName="text-white"
+          fontClassName="text-[var(--color-dark)]"
         />
       </div>
     </div>

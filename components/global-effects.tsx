@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState, useRef, ReactNode } from "react";
+import { usePathname } from "next/navigation";
 import Lenis from "@studio-freight/lenis";
-import { WebGLShader } from "@/components/ui/web-gl-shader";
+import { BackgroundGradientGlow } from "@/components/ui/background-gradient-glow";
 import { SterlingGateKineticNavigation } from "@/components/ui/sterling-gate-kinetic-navigation";
 import { StickyFooter } from "@/components/ui/sticky-footer";
 import { gsap } from "gsap";
@@ -14,6 +15,8 @@ if (typeof window !== "undefined") {
 
 
 export function GlobalEffects({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
   const [isLoading, setIsLoading] = useState(true);
   const [isBypassed, setIsBypassed] = useState(false);
 
@@ -177,22 +180,22 @@ export function GlobalEffects({ children }: { children: ReactNode }) {
       {!isBypassed && isLoading && (
         <div
           ref={preloaderRef}
-          className="fixed inset-0 z-[10000] bg-[#0a0a0b] flex flex-col items-center justify-center pointer-events-auto"
+          className={`fixed inset-0 z-[10000] flex flex-col items-center justify-center pointer-events-auto ${isHomePage ? 'bg-white' : 'bg-[#0a0a0b]'}`}
         >
           <div
             ref={preloaderContentRef}
             className="flex flex-col items-center max-w-xs md:max-w-md w-full px-8"
           >
-            <span className="text-[#a1a1aa] font-sans tracking-[0.4em] text-[0.6rem] md:text-[0.65rem] uppercase mb-4 opacity-60 text-center">
+            <span className={`font-sans tracking-[0.4em] text-[0.6rem] md:text-[0.65rem] uppercase mb-4 opacity-60 text-center ${isHomePage ? 'text-[#71717a]' : 'text-[#a1a1aa]'}`}>
               Smt. B. Seetha Polytechnic
             </span>
             <div
               ref={percentageRef}
-              className="text-serif text-[#e3e3e6] font-bold text-7xl md:text-8xl tracking-tight my-2 select-none"
+              className={`text-serif font-bold text-7xl md:text-8xl tracking-tight my-2 select-none ${isHomePage ? 'text-[#121214]' : 'text-[#e3e3e6]'}`}
             >
               0%
             </div>
-            <div className="w-full h-[2px] bg-[#27272a] rounded-full overflow-hidden mt-4 relative">
+            <div className={`w-full h-[2px] rounded-full overflow-hidden mt-4 relative ${isHomePage ? 'bg-[#e4e4e7]' : 'bg-[#27272a]'}`}>
               <div
                 ref={progressBarRef}
                 className="absolute left-0 top-0 bottom-0 w-0 bg-[#22c55e]"
@@ -211,15 +214,15 @@ export function GlobalEffects({ children }: { children: ReactNode }) {
           {Array.from({ length: 8 }).map((_, i) => (
             <div
               key={i}
-              className="blind w-full h-full bg-[#0a0a0b]"
+              className={`blind w-full h-full ${isHomePage ? 'bg-white' : 'bg-[#0a0a0b]'}`}
               style={{ transformOrigin: "center center", willChange: "transform" }}
             />
           ))}
         </div>
       )}
 
-      {/* Persistent Background Shader */}
-      <WebGLShader />
+      {/* Persistent Background Gradient */}
+      <BackgroundGradientGlow lightMode={isHomePage} />
 
       {/* Persistent Navigation */}
       <SterlingGateKineticNavigation />
@@ -227,7 +230,7 @@ export function GlobalEffects({ children }: { children: ReactNode }) {
       {/* Page Content */}
       <div
         ref={contentRef}
-        className="page-content"
+        className={`page-content ${isHomePage ? 'light-theme' : ''}`}
         style={
           isBypassed
             ? {}

@@ -186,8 +186,8 @@ export function SterlingGateKineticNavigation() {
 
               <button className="nav-close-btn" onClick={toggleMenu}>
                 <div className="menu-button-text" style={{ height: '2.75rem', overflow: 'hidden' }}>
-                  <p style={{ margin: 0, fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', lineHeight: '2.75rem', color: 'white' }}>Menu</p>
-                  <p style={{ margin: 0, fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', lineHeight: '2.75rem', color: 'white' }}>Close</p>
+                  <p style={{ margin: 0, fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', lineHeight: '2.75rem', color: '#000000' }}>Menu</p>
+                  <p style={{ margin: 0, fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', lineHeight: '2.75rem', color: '#000000' }}>Close</p>
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

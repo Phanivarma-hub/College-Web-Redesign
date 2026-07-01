@@ -665,3 +665,11 @@ Steps to integrate
  1. Install external dependencies
  2. Fill image assets with Unsplash stock images you know exist
  3. Use lucide-react icons for svgs or logos if component requires them
+   ===================================================
+
+
+   gsap.to(".blind", {
+  scaleX: 0, duration: 0.6,
+  stagger: { amount: 0.4, from: "edges" },
+  ease: "power2.inOut"
+});

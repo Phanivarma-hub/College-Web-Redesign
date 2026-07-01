@@ -16,7 +16,7 @@ export default function Home() {
     <main className="relative min-h-screen">
 
       {/* Main Content Wrapper */}
-      <div className="relative z-10 bg-[#0a0a0b]/85 shadow-[0_50px_100px_rgba(0,0,0,0.9)]">
+      <div className="relative z-10 shadow-[0_50px_100px_rgba(0,0,0,0.08)] bg-transparent">
         {/* Hero Section */}
         <div className="relative w-full px-4 pt-40 pb-16 flex flex-col items-center overflow-hidden">
           {/* SBSP Branding & Logo (Top-Left) */}
@@ -31,7 +31,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="text-left">
-                  <h2 className="text-white font-extrabold text-xs tracking-wider uppercase leading-none">
+                  <h2 className="text-[var(--color-dark)] font-extrabold text-xs tracking-wider uppercase leading-none">
                     Smt. B. Seetha
                   </h2>
                   <p className="text-[8px] font-black tracking-[0.2em] text-green-500 uppercase mt-0.5">
@@ -74,7 +74,7 @@ export default function Home() {
         {/* Our Programs Section */}
         <div className="relative w-full px-4 pt-32 pb-24 flex flex-col items-center">
           <RiseUp className="w-full max-w-7xl mx-auto flex flex-col items-center mb-10">
-            <h2 className="text-4xl md:text-7xl font-black tracking-tighter text-white mb-4 uppercase text-center">
+            <h2 className="text-4xl md:text-7xl font-black tracking-tighter text-[var(--color-dark)] mb-4 uppercase text-center">
               Our Programs
             </h2>
             <div className="h-px w-20 bg-green-500 mb-6" />

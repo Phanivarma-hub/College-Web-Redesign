@@ -96,11 +96,11 @@ export function MagneticText({ text = "CREATIVE", hoverText = "EXPLORE", classNa
       className={cn("relative inline-flex items-center justify-center cursor-none select-none", className)}
     >
       {/* Base text layer - original text */}
-      <span className="text-5xl md:text-8xl font-black tracking-tighter text-white uppercase leading-none">{text}</span>
+      <span className="text-5xl md:text-8xl font-black tracking-tighter text-[var(--color-dark)] uppercase leading-none">{text}</span>
 
       <div
         ref={circleRef}
-        className="absolute top-0 left-0 pointer-events-none rounded-full bg-white overflow-hidden"
+        className="absolute top-0 left-0 pointer-events-none rounded-full bg-[var(--color-dark)] overflow-hidden"
         style={{
           width: isHovered ? 250 : 0,
           height: isHovered ? 250 : 0,
@@ -119,7 +119,7 @@ export function MagneticText({ text = "CREATIVE", hoverText = "EXPLORE", classNa
             willChange: "transform",
           }}
         >
-          <span className="text-5xl md:text-8xl font-black tracking-tighter text-black uppercase whitespace-nowrap leading-none">
+          <span className="text-5xl md:text-8xl font-black tracking-tighter text-[var(--color-primary)] uppercase whitespace-nowrap leading-none">
             {hoverText}
           </span>
         </div>

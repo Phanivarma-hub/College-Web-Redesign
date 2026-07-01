@@ -73,7 +73,7 @@ export function FramerCarousel() {
   return (
     <div className="w-full max-w-6xl mx-auto px-4 py-8">
       <div
-        className="relative overflow-hidden rounded-[2.5rem] border border-white/10 shadow-[0_48px_80px_-20px_rgba(0,0,0,0.9)] group bg-zinc-950"
+        className="relative overflow-hidden rounded-[2.5rem] border border-[var(--color-border-soft)] shadow-[0_48px_80px_-20px_rgba(0,0,0,0.2)] group bg-[var(--color-primary)]"
         ref={containerRef}
       >
         <motion.div 
@@ -104,7 +104,7 @@ export function FramerCarousel() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
                 >
-                  <h3 className="text-4xl md:text-7xl font-black tracking-tighter uppercase leading-[0.85]">
+                  <h3 className="text-4xl md:text-7xl font-black tracking-tighter uppercase leading-[0.85] text-white">
                     {item.title}
                   </h3>
                 </motion.div>
@@ -144,7 +144,7 @@ export function FramerCarousel() {
             key={i}
             onClick={() => setIndex(i)}
             className={`h-1.5 rounded-full transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] ${
-              i === index ? 'w-14 bg-white shadow-[0_0_15px_rgba(255,255,255,0.4)]' : 'w-2 bg-white/20 hover:bg-white/40'
+              i === index ? 'w-14 bg-[var(--color-dark)] shadow-[0_0_15px_rgba(0,0,0,0.15)]' : 'w-2 bg-[var(--color-dark)]/20 hover:bg-[var(--color-dark)]/40'
             }`}
           />
         ))}

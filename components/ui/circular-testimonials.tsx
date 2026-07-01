@@ -238,7 +238,7 @@ export const CircularTestimonials = ({
               </h3>
               <p
                 className="designation"
-                style={{ color: colorDesignation, fontSize: fontSizeDesignation }}
+                style={{ color: colorDesignation, fontSize: fontSizeDesignation, opacity: 0.65 }}
               >
                 {activeTestimonial.designation}
               </p>

@@ -11,12 +11,45 @@
   
   --color-overlay: rgba(10, 10, 11, 0.85);
   --color-menu-bg: #151517; /* Card/surface background */
+  --color-border-soft: #27272a;
+  --color-muted: #a1a1aa;
+  --color-arrow-bg: rgba(255, 255, 255, 0.05);
+  --color-footer-bg: #000000;
+  --color-footer-text: #ffffff;
+  --color-footer-muted: rgba(255, 255, 255, 0.6);
+  --color-footer-border: rgba(255, 255, 255, 0.1);
   
   --font-serif: var(--font-serif), 'Newsreader', Georgia, serif;
   --font-sans: var(--font-sans), 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-inter: var(--font-sans);
   
   --cubic-default: cubic-bezier(0.65, 0.01, 0.05, 0.99);
+}
+
+/* =========================================
+   LIGHT THEME (route-scoped override)
+   ========================================= */
+.light-theme {
+  --color-primary: #ffffff;
+  --color-dark: #121214;
+  --color-overlay: rgba(255, 255, 255, 0.85);
+  --color-menu-bg: #ffffff;
+  --color-border-soft: #e4e4e7;
+  --color-muted: #71717a;
+  --color-arrow-bg: rgba(0, 0, 0, 0.05);
+  --color-footer-bg: #ffffff;
+  --color-footer-text: #121214;
+  --color-footer-muted: rgba(18, 18, 20, 0.55);
+  --color-footer-border: #e4e4e7;
+}
+
+.light-theme .nav-close-btn {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+.light-theme .nav-close-btn:hover {
+  border-color: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.08);
 }
 
 * {
